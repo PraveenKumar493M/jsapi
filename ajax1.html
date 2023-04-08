@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX LOAD</title>
+</head>
+<body>
+    <h1>AJAX LOAD</h1>
+    
+    <input type="button" onclick="geek()">
+    <p>this is a</p>
+    <p id="dem"></p>
+    <p id="writeData" class="data">Off-Line</p>
+    <p id="lastStamp">No Data yet</p>
+
+    <script src="../jquery-3.6.4.min.js"></script>
+
+    <script>
+   
+    const xhttp = new XMLHttpRequest();
+    const url= "https://api.github.com/zen";
+
+    xhttp.onreadystatechange = () => {
+        if(xhttp.readyState==4){
+            console.log(xhttp.responseText);
+        }
+    }
+    xhttp.open("GET",url);
+    xhttp.send();
+    document.getElementById("dem").innerHTML=xhttp.responseText;
+      
+
+    </script>
+    
+</body>
+</html>
